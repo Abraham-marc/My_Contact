@@ -1,68 +1,64 @@
 import axios from 'axios';
-import { U } from 'vue-router/dist/index-BzEKChPW.js';
 
 const api = axios.create({
-  baseURL: 'https://api-contact.zoul.dev/', 
+  baseURL: 'https://zoul.dev', 
   headers: {
     'Content-Type': 'application/json',
   },
 });
 
 export default {
+  // --- Users ---
+  userlogin() {
+    return api.post('/users/login');
+  },
 
- userlogin() {
-    return api.post('/users/login'),
-    },
+  userregister() {
+    return api.post('/users');
+  },
 
-    userregister() {
-    return api.post('/users'),
-    },
-  
-    allusers() {
-    return api.get('/users'),
-    },
+  allusers() {
+    return api.get('/users');
+  },
 
-      profile() {
-  return api.get(`/users/me`),
-    },
+  profile() {
+    return api.get('/users/me');
+  },
 
-     updateUser() {
-        return api.put('/users/me'),
-    },
-      
-    changepassword() {
-        return api.put('/users/me/password'),
-    },
+  updateUser() {
+    return api.put('/users/me');
+  },
 
+  changepassword() {
+    return api.put('/users/me/password');
+  },
 
-    //
-    getAllContacts(){
-  return api.get('/contacts'),
-    },
+  // --- CONTACTS ---
+  getAllContacts() {
+    return api.get('/contacts');
+  },
 
-    createContact(){
-    return api.post('/contacts'),
-    },
- 
-    getContact(){
-        return api.get('/contacts/me')
-    },
+  createContact() {
+    return api.post('/contacts');
+  },
 
-    getContactById(id) {
-  return api.get(`/contacts/${id}`),
-    },
+  getContact() {
+    return api.get('/contacts/me');
+  },
 
-    UpdateContact() {
-        return api.put('/contacts/{id}'),
-    },
+  getContactById(id) {
+    return api.get(`/contacts/${id}`);
+  },
 
-    deleteContact() {
-        return api.delete('/contacts/{id}'),
-    },
+  updateContact(id) {
+    return api.put(`/contacts/${id}`);
+  },
 
+  deleteContact(id) {
+    return api.delete(`/contacts/${id}`);
+  },
+};
 
-
-}
 
 
     
